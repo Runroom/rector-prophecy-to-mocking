@@ -1,4 +1,4 @@
-# Rector Rules for Prophecy to Moking migration
+# Rector Rules for Prophecy to Mocking migration
 
 ## Install
 
