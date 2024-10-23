@@ -1,0 +1,42 @@
+{
+  "name": "runroom/rector-prophecy-to-mocking",
+  "type": "rector-extension",
+  "license": "MIT",
+  "description": "Rector migration rules for Prophecy to Mocking",
+  "require": {
+    "php": ">=8.0",
+    "symfony/finder": "^4.4|^5.3|^6.0|^7.0",
+    "tomasvotruba/phpunit-json-result-printer": "^0.1.1"
+  },
+  "require-dev": {
+    "rector/rector": "dev-main",
+    "nikic/php-parser": "^4.18",
+    "phpstan/phpstan": "^1.10.55",
+    "symplify/phpstan-extensions": "^11.4",
+    "symplify/easy-coding-standard": "^12.1",
+    "phpstan/extension-installer": "^1.3",
+    "symplify/rule-doc-generator": "^12.1",
+    "tomasvotruba/class-leak": "^0.2.5",
+    "friendsofphp/php-cs-fixer": "^3.64",
+    "tracy/tracy": "^2.10"
+  },
+  "autoload": {
+    "psr-4": {
+      "Rector\\ProphecyToMocking\\": ["src", "rules"]
+    }
+  },
+  "scripts": {
+    "phpstan": "@php phpstan analyse --no-progress",
+    "php-cs-fixer": "@php php-cs-fixer fix --ansi --verbose",
+    "docs": "@php rule-doc-generator generate src rules --output-file docs/rector_rules_overview.md --ansi"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "platform-check": false,
+    "allow-plugins": {
+      "phpstan/extension-installer": true,
+      "rector/extension-installer": true
+    }
+  }
+}
