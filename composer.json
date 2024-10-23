@@ -5,8 +5,7 @@
   "description": "Rector migration rules for Prophecy to Mocking",
   "require": {
     "php": ">=8.0",
-    "symfony/finder": "^4.4|^5.3|^6.0|^7.0",
-    "tomasvotruba/phpunit-json-result-printer": "^0.1.1"
+    "symfony/finder": "^4.4|^5.3|^6.0|^7.0"
   },
   "require-dev": {
     "rector/rector": "dev-main",
