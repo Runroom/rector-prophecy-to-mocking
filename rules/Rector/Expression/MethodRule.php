@@ -12,6 +12,7 @@ use PhpParser\Node\Identifier;
 use PhpParser\Node\Param;
 use PhpParser\Node\Stmt\Expression;
 use PhpParser\NodeTraverser;
+use Rector\ProphecyToMocking\Naming\MethodProphecyDetector;
 use Rector\Rector\AbstractRector;
 use Rector\ProphecyToMocking\Enum\PhpSpecMethodName;
 use Rector\ProphecyToMocking\Enum\PHPUnitMethodName;
@@ -55,6 +56,7 @@ class MethodRule extends AbstractRector
                 return null;
             }
 
+            // handled in another rule
             if ($this->isName($node->name, PHPUnitMethodName::REVEAL)) {
                 return null;
             }
@@ -78,6 +80,11 @@ class MethodRule extends AbstractRector
 
             // already converted
             if (SystemMethodDetector::detect($node->name->toString())) {
+                return null;
+            }
+
+            // It the method is not from the prophecy library, we don't need to convert it
+            if (!MethodProphecyDetector::detect($node->name->toString())) {
                 return null;
             }
 
