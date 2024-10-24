@@ -83,11 +83,6 @@ class MethodRule extends AbstractRector
                 return null;
             }
 
-            // It the method is not from the prophecy library, we don't need to convert it
-            if (!MethodProphecyDetector::detect($node->name->toString())) {
-                return null;
-            }
-
             $hasChanged = true;
 
             /** @var string $methodName */
